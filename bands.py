@@ -70,7 +70,7 @@ bands_db: List[Tuple[str, str, int, List[str]]] = [
         ["three imaginary boys", "seventeen seconds", "faith", "pornography", "the top", "the head on the door", "kiss me, kiss me, kiss me", "disintegration", "wish", "wild mood swings", "bloodflowers", "the cure", "4:13 dream"],
     ),
     (
-        "ings",
+        "wings",
         "rock",
         7,
         ["wildlife", "red rose speedway", "band in the run", "venus and mars", "wings at the speed of sound", "london town", "back to the egg"],
@@ -80,7 +80,7 @@ bands_db: List[Tuple[str, str, int, List[str]]] = [
         "rock",
         1,
         [
-            "Layla and other assorted love songs",
+            "layla and other assorted love songs",
         ],
     ),
     (

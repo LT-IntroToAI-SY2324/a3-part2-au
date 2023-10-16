@@ -20,17 +20,6 @@ def get_albums(band: Tuple[str, str, int, List[str]]) -> List[str]:
 
 
 
-def name_by_albumnum(matches: List[str]) -> List[str]:
-    
-    result = []
-    for movie in movie_db:
-        if int(matches[0]) == get_year(movie):
-            result.append(get_title(movie))
-    
-    return result 
-
-
-
 def genre_by_name(matches: List[str]) -> List[str]:
   
     result = []
@@ -65,7 +54,7 @@ def albums_by_name(matches: List[str]) -> List[str]:
 
 
 
-def albumnum_by_title(matches: List[str]) -> List[int]:
+def albumnum_by_name(matches: List[str]) -> List[int]:
   
     result = []
     for band in band_db:
@@ -97,18 +86,12 @@ def bye_action(dummy: List[str]) -> None:
 # The pattern-action list for the natural language query system A list of tuples of
 # pattern and action It must be declared here, after all of the function definitions
 pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
-    (str.split("what movies were made in _"), title_by_year),
-    (str.split("what movies were made between _ and _"), title_by_year_range),
-    (str.split("what movies were made before _"), title_before_year),
-    (str.split("what movies were made after _"), title_after_year),
-    # note there are two valid patterns here two different ways to ask for the director
-    # of a movie
-    (str.split("who directed %"), director_by_title),
-    (str.split("who was the director of %"), director_by_title),
-    (str.split("what movies were directed by %"), title_by_director),
-    (str.split("who acted in %"), actors_by_title),
-    (str.split("when was % made"), year_by_title),
-    (str.split("in what movies did % appear"), title_by_actor),
+
+    (str.split("what genre is %"), genre_by_name),
+    (str.split("what bands are %"), name_by_genre),
+    (str.split("what albums were made by %"), albums_by_name),
+    (str.split("how many albums has % made"), albumnum_by_name),
+    (str.split("what band has the % album"), name_by_albums),
     (["bye"], bye_action),
 ]
 
